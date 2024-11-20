@@ -55,9 +55,13 @@
       pointer-events: none;
     }
 
+    .section-title {
+      font-size: 50px;
+      color: #2C3BFF;
+    }
     .service-title {
       font-size: 24px;
-      color: #0050c7;
+      color: #333;;
     }
 
     .service-text {
@@ -78,6 +82,8 @@
 </head>
 <body>
   <div class="container py-5">
+    <h1 class="section-title text-center text-md-end">Our Services</h1>
+
     <div class="row justify-content-center align-items-center">
       <!-- Circle Section -->
       <div class="col-12 col-md-6 text-center">
@@ -114,7 +120,7 @@
 
       <!-- Description Section -->
       <div class="col-12 col-md-6">
-        <h2 class="service-title text-center text-md-start">Our Services</h2>
+        <h2 class="service-title text-center text-md-start" id="service-title">Manage Support</h2>
         <p class="service-text" id="service-text" class="text-center text-md-start">
           Hover over a section to see details.
         </p>
@@ -127,6 +133,7 @@
   <script>
     const triangles = document.querySelectorAll('.triangle');
     const serviceText = document.getElementById('service-text');
+    const serviceTitle = document.getElementById('service-title');
 
     const serviceDescriptions = {
       "Advisory": "Our advisory services help optimize your Workday environment.",
@@ -146,6 +153,8 @@
         triangle.classList.add('selected');
         const serviceName = triangle.getAttribute('data-service');
         serviceText.textContent = serviceDescriptions[serviceName];
+        serviceTitle.textContent = serviceName;
+
       });
     });
   </script>
