@@ -139,7 +139,8 @@
     const triangles = document.querySelectorAll('.triangle');
     const serviceText = document.getElementById('service-text');
     const serviceTitle = document.getElementById('service-title');
-
+    let selectedText =  "";
+    let selectedTitle = "";
     const serviceDescriptions = {
       "Advisory": "Our Advisory Services are designed to support you with your Workday investment strategy and business case. By aligning your HR, finance, planning and operational strategies with Workday's capabilities, we ensure positive ROI, enabling transformational capabilities for your company.",
       "Resourcing": "Our Resourcing Services are designed to ensure that your projects are staffed with the right talent, at the right time, and within budget.  We focus on understanding your project goals and aligning resources that not only meet the technical requirements but also fit seamlessly into your team’s culture.",
@@ -149,7 +150,19 @@
 
     // Add click event for triangle selection
     triangles.forEach(triangle => {
+        triangle.addEventListener('mouseenter', () => {        
+        // Add selection to clicked triangle
+        // triangle.classList.add('selected');
+        const serviceName = triangle.getAttribute('data-service');
+        serviceTitle.textContent = serviceName;
+        serviceText.textContent = serviceDescriptions[serviceName];
 
+      });
+
+      triangle.addEventListener('mouseleave', () => {
+        serviceText.textContent = selectedText;
+        serviceTitle.textContent = selectedTitle;        
+      });
       triangle.addEventListener('click', () => {
         // Remove selection from all triangles
         triangles.forEach(tri => tri.classList.remove('selected'));
@@ -157,9 +170,11 @@
         // Add selection to clicked triangle
         triangle.classList.add('selected');
         const serviceName = triangle.getAttribute('data-service');
-        serviceText.textContent = serviceDescriptions[serviceName];
-        serviceTitle.textContent = serviceName;
-
+        selectedText = serviceDescriptions[serviceName];
+        selectedTitle = serviceName;
+        serviceText.textContent = selectedText;
+        serviceTitle.textContent = selectedTitle;
+        
       });
     });
   </script>
