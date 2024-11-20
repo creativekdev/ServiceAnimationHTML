@@ -34,7 +34,6 @@
     }
 
     .triangle {
-      fill: #0078ff;
       cursor: pointer;
       transition: fill 0.3s ease, stroke 0.3s ease;
     }
@@ -91,11 +90,13 @@
           <svg viewBox="0 0 600 600" class="circle-svg">
             <!-- Gradient Definition -->
             <defs>
-              <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" style="stop-color: #0078ff; stop-opacity: 1" />
-                <stop offset="100%" style="stop-color: #001eff; stop-opacity: 1" />
-              </linearGradient>
+                <radialGradient id="gradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                  <stop offset="0%" style="stop-color: #2c3bff; stop-opacity: 1" />
+                  <stop offset="80%" style="stop-color: #2c3bff; stop-opacity: 1" />
+                  <stop offset="100%" style="stop-color: #0000d6; stop-opacity: 1" />
+                </radialGradient>
             </defs>
+              
 
             <!-- Outer Circle Ring -->
             <circle cx="300" cy="300" r="240" class="circle-ring"></circle>
@@ -103,15 +104,86 @@
             <!-- Main Circle -->
             <circle cx="300" cy="300" r="240" class="circle-bg"></circle>
 
-            <!-- Image in the center of the circle -->
-            <image x="250" y="250" width="100" height="100" href="https://via.placeholder.com/100" />
 
-            <!-- Triangular Buttons -->
-            <polygon points="300,210 200,10 400,10" class="triangle" data-service="Advisory"></polygon>
-            <polygon points="390,300 590,200 590,400" class="triangle" data-service="Resourcing"></polygon>
-            <polygon points="300,390 200,590 400,590" class="triangle" data-service="Project"></polygon>
-            <polygon points="210,300 10,200 10,400" class="triangle" data-service="Managed Support"></polygon>
+            <g transform="translate(260.000000,340.000000) scale(0.0100000,-0.0100000)"
+            fill="#FFFFFF" stroke="none">
+            <path d="M2529 8391 c-102 -33 -167 -91 -215 -194 l-24 -52 0 -1634 c0 -1302
+            -3 -1632 -12 -1628 -7 2 -404 283 -883 623 -583 414 -890 626 -929 642 -50 21
+            -72 24 -135 20 -105 -7 -167 -36 -236 -110 -43 -46 -59 -73 -75 -126 -20 -66
+            -20 -82 -18 -1747 l3 -1680 27 -57 c35 -76 95 -138 165 -173 51 -26 69 -29
+            148 -30 76 0 98 4 140 25 28 14 438 301 913 638 474 337 869 615 877 618 13 5
+            15 -188 17 -1637 l3 -1644 27 -50 c27 -50 90 -117 140 -148 47 -29 146 -50
+            203 -42 110 13 220 89 273 190 l27 50 3 1644 c2 1372 4 1642 16 1638 12 -5
+            555 -390 3716 -2635 646 -460 1197 -845 1224 -858 168 -78 364 -3 447 171 24
+            50 29 73 29 137 0 102 -26 172 -88 237 -26 27 -317 241 -652 478 -3171 2246
+            -4430 3147 -4418 3159 7 6 288 207 623 445 336 238 709 503 830 589 121 86
+            974 691 1895 1344 976 692 1695 1208 1722 1237 62 65 88 135 88 237 0 81 -21
+            144 -71 212 -50 67 -180 130 -270 130 -101 0 -129 -17 -756 -462 -329 -234
+            -1075 -764 -1658 -1178 -2301 -1634 -2656 -1885 -2665 -1888 -6 -2 -11 579
+            -12 1640 l-3 1643 -27 51 c-41 78 -125 149 -205 174 -79 24 -130 25 -204 1z
+            m-1155 -3717 c605 -429 657 -468 640 -481 -88 -65 -1314 -933 -1318 -933 -3 0
+            -6 426 -6 946 0 765 2 945 13 941 7 -2 309 -215 671 -473z"/>
+            </g>
+            
+            <!-- Gradient Definitions -->
+            <defs>
+                <linearGradient id="gradient-advisory" x1="50%" y1="0%" x2="50%" y2="100%">
+                    <stop offset="0%" style="stop-color: #0000D6; stop-opacity: 1" />
+                    <stop offset="100%" style="stop-color: #c7ccff; stop-opacity: 1" />
+                </linearGradient>
 
+                <linearGradient id="gradient-resourcing" x1="100%" y1="50%" x2="0%" y2="50%">
+                    <stop offset="0%" style="stop-color: #0000D6; stop-opacity: 1" />
+                    <stop offset="100%" style="stop-color: #c7ccff; stop-opacity: 1" />
+                </linearGradient>
+
+                <linearGradient id="gradient-triangle" x1="50%" y1="100%" x2="50%" y2="0%">
+                    <stop offset="0%" style="stop-color: #0000D6; stop-opacity: 1" />
+                    <stop offset="100%" style="stop-color: #c7ccff; stop-opacity: 1" />
+                </linearGradient>
+
+                <linearGradient id="gradient-managed-support" x1="0%" y1="50%" x2="100%" y2="50%">
+                    <stop offset="0%" style="stop-color: #0000D6; stop-opacity: 1" />
+                    <stop offset="100%" style="stop-color: #c7ccff; stop-opacity: 1" />
+                </linearGradient>
+            </defs>            
+            <!-- Polygons with Gradient Fills -->
+            <!-- <polygon points="300,210 200,10 400,10" class="triangle" data-service="Advisory" fill="url(#gradient-advisory)"></polygon> -->
+            <!-- <polygon points="390,300 590,200 590,400" class="triangle" data-service="Resourcing" fill="url(#gradient-resourcing)"></polygon> -->
+            <!-- <polygon points="300,390 200,590 400,590" class="triangle" data-service="Project" fill="url(#gradient-project)"></polygon> -->
+            <!-- <polygon points="210,300 10,200 10,400" class="triangle" data-service="Managed Support" fill="url(#gradient-managed-support)"></polygon> -->
+            <path 
+                d="M 252.776 103.111 Q 269.602 69.248 286.427 103.111 L 405.733 343.226 Q 422.558 377.089 388.908 377.089 L 150.295 377.089 Q 116.645 377.089 133.47 343.226 Z"
+                bx:shape="triangle 116.645 69.248 305.913 307.841 0.5 0.11 1@2bd2c0cf" 
+                class="triangle" 
+                data-service="Managed Support"
+                fill="url(#gradient-triangle)"
+                transform="rotate(90, 100, 100) translate(80, -110) scale(0.8, 0.8) "
+                />
+            <path 
+                d="M 252.776 103.111 Q 269.602 69.248 286.427 103.111 L 405.733 343.226 Q 422.558 377.089 388.908 377.089 L 150.295 377.089 Q 116.645 377.089 133.47 343.226 Z"
+                bx:shape="triangle 116.645 69.248 305.913 307.841 0.5 0.11 1@2bd2c0cf" 
+                class="triangle" 
+                data-service="Resourcing"
+                fill="url(#gradient-triangle)"
+                transform="rotate(-90, 100, 100) translate(-315, 280) scale(0.8, 0.8) "
+                />            
+            <path 
+                d="M 252.776 103.111 Q 269.602 69.248 286.427 103.111 L 405.733 343.226 Q 422.558 377.089 388.908 377.089 L 150.295 377.089 Q 116.645 377.089 133.47 343.226 Z"
+                bx:shape="triangle 116.645 69.248 305.913 307.841 0.5 0.11 1@2bd2c0cf" 
+                class="triangle" 
+                data-service="Advisory"
+                fill="url(#gradient-triangle)"
+                transform="rotate(180, 0, 0) translate(-515, -300) scale(0.8, 0.8) "
+                />    
+            <path 
+                d="M 252.776 103.111 Q 269.602 69.248 286.427 103.111 L 405.733 343.226 Q 422.558 377.089 388.908 377.089 L 150.295 377.089 Q 116.645 377.089 133.47 343.226 Z"
+                bx:shape="triangle 116.645 69.248 305.913 307.841 0.5 0.11 1@2bd2c0cf" 
+                class="triangle" 
+                data-service="Project"
+                fill="url(#gradient-triangle)"
+                transform="rotate(0, 0, 0) translate(84, 280) scale(0.8, 0.8) "
+                />  
             <!-- Text Labels -->
             <text x="300" y="100" text-anchor="middle">ADVISORY</text>
             <text x="500" y="310" text-anchor="middle">RESOURCING</text>
@@ -141,6 +213,7 @@
     const serviceTitle = document.getElementById('service-title');
     let selectedText =  "";
     let selectedTitle = "";
+    let selectedTriangle;
     const serviceDescriptions = {
       "Advisory": "Our Advisory Services are designed to support you with your Workday investment strategy and business case. By aligning your HR, finance, planning and operational strategies with Workday's capabilities, we ensure positive ROI, enabling transformational capabilities for your company.",
       "Resourcing": "Our Resourcing Services are designed to ensure that your projects are staffed with the right talent, at the right time, and within budget.  We focus on understanding your project goals and aligning resources that not only meet the technical requirements but also fit seamlessly into your team’s culture.",
@@ -151,24 +224,35 @@
     // Add click event for triangle selection
     triangles.forEach(triangle => {
         triangle.addEventListener('mouseenter', () => {        
-        // Add selection to clicked triangle
-        // triangle.classList.add('selected');
-        const serviceName = triangle.getAttribute('data-service');
-        serviceTitle.textContent = serviceName;
-        serviceText.textContent = serviceDescriptions[serviceName];
+            // Add selection to clicked triangle
+            // triangle.classList.add('selected');
+            // Remove selection from all triangles
+            triangles.forEach(tri => tri.classList.remove('selected'));
 
-      });
+            // Add selection to clicked triangle
+            triangle.classList.add('selected');        
+            const serviceName = triangle.getAttribute('data-service');
+            serviceTitle.textContent = serviceName;
+            serviceText.textContent = serviceDescriptions[serviceName];
+            if(selectedTriangle) selectedTriangle.classList.add('selected');
+
+        });
 
       triangle.addEventListener('mouseleave', () => {
+        // Remove selection from all triangles
+        triangles.forEach(tri => tri.classList.remove('selected'));
         serviceText.textContent = selectedText;
-        serviceTitle.textContent = selectedTitle;        
+        serviceTitle.textContent = selectedTitle;
+        if(selectedTriangle) selectedTriangle.classList.add('selected');
+
       });
       triangle.addEventListener('click', () => {
         // Remove selection from all triangles
         triangles.forEach(tri => tri.classList.remove('selected'));
 
         // Add selection to clicked triangle
-        triangle.classList.add('selected');
+        selectedTriangle = triangle;
+        selectedTriangle.classList.add('selected');
         const serviceName = triangle.getAttribute('data-service');
         selectedText = serviceDescriptions[serviceName];
         selectedTitle = serviceName;
