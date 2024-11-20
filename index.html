@@ -3,6 +3,20 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Page with Embedded Content</title>
+</head>
+<body>
+
+  <h1>Welcome to My Page</h1>
+  <p>This page contains an iframe that loads content from an external file.</p>
+
+  <!-- iframe element -->
+  <iframe width="100%" height="800" frameborder="0" srcdoc='
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Responsive Circle Diagram</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
   <style>
@@ -232,14 +246,14 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 
   <script>
-    const triangles = document.querySelectorAll('.triangle');
-    const serviceText = document.getElementById('service-text');
-    const serviceTitle = document.getElementById('service-title');
+    const triangles = document.querySelectorAll(".triangle");
+    const serviceText = document.getElementById("service-text");
+    const serviceTitle = document.getElementById("service-title");
     let selectedText =  "Our Fixed Price Workday Application Managed Services provides your organisation with comprehensive support and maintenance for your Workday system. With our fixed price model, you gain predictability and control over your costs, ensuring your Workday environment remains optimised and efficient while you focus on your business.";
     let selectedTitle = "Managed Support";
     let selectedTriangle;
     const serviceDescriptions = {
-      "Advisory": "Our Advisory Services are designed to support you with your Workday investment strategy and business case. By aligning your HR, finance, planning and operational strategies with Workday's capabilities, we ensure positive ROI, enabling transformational capabilities for your company.",
+      "Advisory": "Our Advisory Services are designed to support you with your Workday investment strategy and business case. By aligning your HR, finance, planning and operational strategies with Workday s capabilities, we ensure positive ROI, enabling transformational capabilities for your company.",
       "Resourcing": "Our Resourcing Services are designed to ensure that your projects are staffed with the right talent, at the right time, and within budget.  We focus on understanding your project goals and aligning resources that not only meet the technical requirements but also fit seamlessly into your team’s culture.",
       "Project": "Our Workday Project Services are designed to provide your organisation with a seamless, fixed price, cost-effective transition to the Workday Enterprise Management Cloud. With our fixed price model, you gain predictability and control over your budget while ensuring a high-quality outcomes for your business.",
       "Managed Support": "Our Fixed Price Workday Application Managed Services provides your organisation with comprehensive support and maintenance for your Workday system. With our fixed price model, you gain predictability and control over your costs, ensuring your Workday environment remains optimised and efficient while you focus on your business."
@@ -247,37 +261,37 @@
 
     // Add click event for triangle selection
     triangles.forEach(triangle => {
-        triangle.addEventListener('mouseenter', () => {        
+        triangle.addEventListener("mouseenter", () => {        
             // Add selection to clicked triangle
-            // triangle.classList.add('selected');
+            // triangle.classList.add("selected");
             // Remove selection from all triangles
-            triangles.forEach(tri => tri.classList.remove('selected'));
+            triangles.forEach(tri => tri.classList.remove("selected"));
 
             // Add selection to clicked triangle
-            triangle.classList.add('selected');        
-            const serviceName = triangle.getAttribute('data-service');
+            triangle.classList.add("selected");        
+            const serviceName = triangle.getAttribute("data-service");
             serviceTitle.textContent = serviceName;
             serviceText.textContent = serviceDescriptions[serviceName];
-            if(selectedTriangle) selectedTriangle.classList.add('selected');
+            if(selectedTriangle) selectedTriangle.classList.add("selected");
 
         });
 
-      triangle.addEventListener('mouseleave', () => {
+      triangle.addEventListener("mouseleave", () => {
         // Remove selection from all triangles
-        triangles.forEach(tri => tri.classList.remove('selected'));
+        triangles.forEach(tri => tri.classList.remove("selected"));
         serviceText.textContent = selectedText;
         serviceTitle.textContent = selectedTitle;
-        if(selectedTriangle) selectedTriangle.classList.add('selected');
+        if(selectedTriangle) selectedTriangle.classList.add("selected");
 
       });
-      triangle.addEventListener('click', () => {
+      triangle.addEventListener("click", () => {
         // Remove selection from all triangles
-        triangles.forEach(tri => tri.classList.remove('selected'));
+        triangles.forEach(tri => tri.classList.remove("selected"));
 
         // Add selection to clicked triangle
         selectedTriangle = triangle;
-        selectedTriangle.classList.add('selected');
-        const serviceName = triangle.getAttribute('data-service');
+        selectedTriangle.classList.add("selected");
+        const serviceName = triangle.getAttribute("data-service");
         selectedText = serviceDescriptions[serviceName];
         selectedTitle = serviceName;
         serviceText.textContent = selectedText;
@@ -288,3 +302,11 @@
   </script>
 </body>
 </html>
+  '></iframe>
+
+</body>
+</html>
+
+
+
+
