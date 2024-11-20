@@ -44,7 +44,7 @@
     }
 
     .triangle.selected {
-      stroke: #ffcc00; /* Yellow border for emphasis */
+      stroke: #63f5e6; /* Yellow border for emphasis */
       stroke-width: 8;
     }
 
@@ -137,14 +137,6 @@
 
     // Add click event for triangle selection
     triangles.forEach(triangle => {
-      triangle.addEventListener('mouseenter', () => {
-        const serviceName = triangle.getAttribute('data-service');
-        serviceText.textContent = serviceDescriptions[serviceName];
-      });
-
-      triangle.addEventListener('mouseleave', () => {
-        serviceText.textContent = 'Hover over a section to see details.';
-      });
 
       triangle.addEventListener('click', () => {
         // Remove selection from all triangles
@@ -152,6 +144,8 @@
 
         // Add selection to clicked triangle
         triangle.classList.add('selected');
+        const serviceName = triangle.getAttribute('data-service');
+        serviceText.textContent = serviceDescriptions[serviceName];
       });
     });
   </script>
